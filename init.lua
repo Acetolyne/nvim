@@ -1,0 +1,2 @@
+require("acetolyne")
+print("hello")
