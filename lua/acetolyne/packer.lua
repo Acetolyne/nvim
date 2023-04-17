@@ -18,4 +18,7 @@ return require('packer').startup(function(use)
     "williamboman/mason.nvim",
     run = ":MasonUpdate" -- :MasonUpdate updates registry contents
   }
+  --tabnine autocompletion
+  use "hrsh7th/nvim-cmp" --completion
+  use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
 end)
