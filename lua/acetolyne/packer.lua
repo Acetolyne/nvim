@@ -13,4 +13,9 @@ return require('packer').startup(function(use)
   	requires = { {'nvim-lua/plenary.nvim'} }
   }
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+  --lsp linters and formatters management
+  use {
+    "williamboman/mason.nvim",
+    run = ":MasonUpdate" -- :MasonUpdate updates registry contents
+  }
 end)
