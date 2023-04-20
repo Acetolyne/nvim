@@ -21,4 +21,9 @@ return require('packer').startup(function(use)
   --tabnine autocompletion
   use "hrsh7th/nvim-cmp" --completion
   use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
+  --nvim-rooter project directory
+  use {
+    'notjedi/nvim-rooter.lua',
+    config = function() require'nvim-rooter'.setup() end
+  }
 end)
