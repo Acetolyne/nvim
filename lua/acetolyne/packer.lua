@@ -26,4 +26,12 @@ return require('packer').startup(function(use)
     'notjedi/nvim-rooter.lua',
     config = function() require'nvim-rooter'.setup() end
   }
+  --debugging
+  --DAP
+  use 'mfussenegger/nvim-dap'
+  --DAP UI
+  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+  --golang debugger
+  use 'leoluz/nvim-dap-go' -- Install the plugin with Packer
+  require('dap-go').setup()
 end)
