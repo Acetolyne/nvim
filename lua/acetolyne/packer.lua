@@ -28,10 +28,10 @@ return require('packer').startup(function(use)
   }
   --debugging
   --DAP
-  use 'mfussenegger/nvim-dap'
+  --use 'mfussenegger/nvim-dap'
   --DAP UI
-  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+  --use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
   --golang debugger
-  use 'leoluz/nvim-dap-go' -- Install the plugin with Packer
-  require('dap-go').setup()
+  --use 'leoluz/nvim-dap-go' -- Install the plugin with Packer
+  --require('dap-go').setup()
 end)
