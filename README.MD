@@ -30,3 +30,7 @@ Trunk io setup needs the trunk cli in the path
 
 ```mv trunk /usr/bin/trunk```
 
+## Live grep
+Live grep requires that the RipGrep binary is installed on the system
+```sudo apt-get install ripgrep``` on Linux systems
+

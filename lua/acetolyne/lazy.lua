@@ -43,7 +43,13 @@ require("lazy").setup({
 
     -- file navigation
     { "ThePrimeagen/harpoon"},
-    { "nvim-telescope/telescope.nvim"},
+    { 
+        "nvim-telescope/telescope.nvim",
+        dependencies = { 
+            "nvim-lua/plenary.nvim",
+            "BurntSushi/ripgrep",
+        },
+    },
     {
         "nvim-tree/nvim-tree.lua",
         version = "*",
