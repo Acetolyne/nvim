@@ -5,8 +5,11 @@ local options = {
     shiftwidth = 2,
     expandtab = true,
     showtabline = 0,
+    wrap = false,
     number = true,
     relativenumber = true,
+    undodir = os.getenv("HOME") .. "/.vim/undodir",
+    undofile = true,
 }
 
 for option, value in pairs(options) do
