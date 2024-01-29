@@ -21,3 +21,12 @@ to change the font in the terminal emulator you will just need to open gnome-ter
 
 restart the terminal and if using guake terminal quit and restart that as well.
 
+## Trunkio
+Trunk io setup needs the trunk cli in the path
+
+```curl -LO https://trunk.io/releases/trunk```
+
+```chmod +x trunk```
+
+```mv trunk /usr/bin/trunk```
+
