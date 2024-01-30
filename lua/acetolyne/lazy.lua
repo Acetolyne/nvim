@@ -72,4 +72,5 @@ require("lazy").setup({
 		main = "trunk",
 		dependencies = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"}
 	},
+    { "notjedi/nvim-rooter.lua" },
 })
