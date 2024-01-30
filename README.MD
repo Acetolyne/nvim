@@ -1,5 +1,12 @@
 # NeoVim Config
 
+## Install neovim
+download the latest binary
+untar the download
+cp the nvim binary from the /bin folder to the location of the current binary
+navigate to the /share/nvim folder in the untarred folder
+cp the runtime folder to /usr/share/nvim with the command ```sudo cp -r runtime /usr/share/nvim/```
+
 ## Package Manager
 The package manager used is Lazy Loader
 
