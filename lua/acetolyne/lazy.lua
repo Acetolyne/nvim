@@ -62,15 +62,25 @@ require("lazy").setup({
 		-- optionally pin the version
 		-- tag = "v0.1.1",
 		-- these are optional config arguments (defaults shown)
-		config = {
+		opts = {
 			trunkPath = "trunk",
 			-- lspArgs = {},
 			-- formatOnSave = true,
                         -- formatOnSaveTimeout = 10, -- seconds
-			logLevel = "debug"
+			logLevel = "info"
 		},
 		main = "trunk",
 		dependencies = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"}
 	},
     { "notjedi/nvim-rooter.lua" },
+    -- diagnostic view
+    {
+      "folke/trouble.nvim",
+      dependencies = { "nvim-tree/nvim-web-devicons" },
+      opts = {
+       icons = true,
+       auto_open = true,
+       position = "right",
+      },
+    },
 })
