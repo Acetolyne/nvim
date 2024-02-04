@@ -15,13 +15,13 @@ return require("packer").startup(function(use)
 
   use("folke/tokyonight.nvim")
 
-  use({
-	  "rose-pine/neovim",
-	  as = "rose-pine",
-	  config = function()
-		  vim.cmd("colorscheme rose-pine")
-	  end
-  })
+--   use({
+-- 	  "rose-pine/neovim",
+-- 	  as = "rose-pine",
+-- 	  config = function()
+-- 		  vim.cmd("colorscheme rose-pine")
+-- 	  end
+--   })
 
   use({
       "folke/trouble.nvim",
@@ -72,7 +72,7 @@ return require("packer").startup(function(use)
 
   use("folke/zen-mode.nvim")
   use("github/copilot.vim")
-  use("eandrju/cellular-automaton.nvim")
+--   use("eandrju/cellular-automaton.nvim")
   use("laytan/cloak.nvim")
 
 end)
