@@ -53,10 +53,11 @@ return {
                 end,
             }
         })
-
+        
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
         cmp.setup({
+            preselect = cmp.PreselectMode.None,
             snippet = {
                 expand = function(args)
                     require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
@@ -73,7 +74,10 @@ return {
                 { name = 'luasnip' }, -- For luasnip users.
             }, {
                 { name = 'buffer' },
-            })
+            }),
+            window = {
+                completeopt = "menu,menuone,noselect",
+            },
         })
 
         vim.diagnostic.config({
