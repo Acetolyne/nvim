@@ -23,6 +23,7 @@ require("lazy").setup({
             vim.cmd([[colorscheme tokyonight]])
         end,
     },
+    -- autocomplete/intellisense
     {
         "hrsh7th/nvim-cmp",
         -- load cmp on InsertEnter
@@ -37,6 +38,17 @@ require("lazy").setup({
           -- ...
         end,
     },
+    {'hrsh7th/cmp-buffer'},
+    {'hrsh7th/cmp-path'},
+    {'saadparwaiz1/cmp_luasnip'},
+    {'hrsh7th/cmp-nvim-lsp'},
+    {'hrsh7th/cmp-nvim-lua'},
+    {'onsails/lspkind.nvim'},
+    { 'codota/tabnine-nvim', build = "./dl_binaries.sh" },
+    -- Snippets
+    {'L3MON4D3/LuaSnip'},
+    {'rafamadriz/friendly-snippets'},
+    -- package management
     { "williamboman/mason.nvim"},
     { "williamboman/mason-lspconfig.nvim"},
     { "neovim/nvim-lspconfig"},

@@ -37,3 +37,20 @@ Trunk io setup needs the trunk cli in the path
 
 ```mv trunk /usr/bin/trunk```
 
+## Lsp Setup
+
+configurations for different lsp servers can be found at 
+https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#gopls
+
+
+## Things I still need to configure
+lsp
+autocompletion/intellisense
+ccc plugin for showing defined colors
+copilot?
+keymaps
+how do i quickly choose blocks of code
+how do I quickly jump lines
+yank and put
+fix warning for global vim is undefined
+
