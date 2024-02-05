@@ -31,6 +31,14 @@ require("lazy").setup({
 		main = "trunk",
 		dependencies = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"}
 	},
+	{
+        "nvim-tree/nvim-tree.lua",
+        version = "*",
+        lazy = false,
+        dependencies = {
+          "nvim-tree/nvim-web-devicons",
+        },
+    },
 })
 --[[
 require("lazy").setup({
