@@ -40,6 +40,28 @@ require("lazy").setup({
         },
     },
 })
+
+--setup flowcat autocmd
+vim.api.nvim_create_autocmd('BufWritePre', {
+	-- run Flowcat after saving files
+	pattern = {"*"},
+	callback = function()
+		local dir = vim.fn.getcwd()
+		local args = [[flowcat -l -f {dir} -o {dir}/todo]]
+		args = args:gsub('{dir}',dir)
+		args = [[flowcat -l]]
+		--   vim.fn.jobstart({"flowcat", "-l", "-o", "todo"}, {
+		--     stdout_buffered = true,
+		--     --on_stderr = function(_, data)
+		--       --if data then
+		--         --print("yo")
+		--         --print(data)
+		--       --end
+		--     --end,
+		--   })
+		vim.fn.system('flowcat -l -f ' .. dir .. ' -o ' .. dir .. '/todo')
+	end,
+})
 --[[
 require("lazy").setup({
   use("~/personal/harpoon")
