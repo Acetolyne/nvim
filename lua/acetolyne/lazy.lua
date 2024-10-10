@@ -67,7 +67,7 @@ require("lazy").setup({
 			-- lspArgs = {},
 			-- formatOnSave = true,
                         -- formatOnSaveTimeout = 10, -- seconds
-			logLevel = "info"
+			logLevel = "debug"
 		},
 		main = "trunk",
 		dependencies = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"}
