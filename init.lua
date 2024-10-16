@@ -1,3 +1,1 @@
-require("acetolyne")
-print("hello")
 
