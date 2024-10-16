@@ -37,3 +37,19 @@ Trunk io setup needs the trunk cli in the path
 
 ```mv trunk /usr/bin/trunk```
 
+# New Config notes
+
+## List of lsp servers available to mason to install configure in mason.lua
+
+https://github.com/williamboman/mason-lspconfig.nvim/blob/main/doc/server-mapping.md
+
+## Mason
+
+Mason is used to automatically install lsp servers that we can then use lspconfig to setup those servers
+
+## todo-comments 
+
+todo comments is a way to search for todo items. add a todo with TODO: 
+other tags can also be used such as BUG NOTE FIX and more by default. you can also add your own tags if you need custom ones, instructions at https://github.com/folke/todo-comments.nvim
+
+

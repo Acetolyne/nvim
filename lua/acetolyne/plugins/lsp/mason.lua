@@ -24,16 +24,17 @@ return {
     mason_lspconfig.setup({
       -- list of servers for mason to install
       ensure_installed = {
-        "tsserver",
-        "html",
-        "cssls",
-        "tailwindcss",
-        "svelte",
-        "lua_ls",
-        "graphql",
+        "typescript-language-server",
+        "html_lsp",
+        "css-lsp",
+        "tailwindcss-language-server",
+        "svelte-language-server",
+        "lua-language-server",
+        "graphql-language-service-cli",
         "emmet_ls",
-        "prismals",
+        "prisma-language-server",
         "pyright",
+        "gopls",
       },
     })
   end,
