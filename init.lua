@@ -1,3 +1,2 @@
-require("acetolyne")
-print("hello")
-
+require("acetolyne.core")
+require("acetolyne.lazy")
