@@ -10,6 +10,7 @@ cp the runtime folder to /usr/share/nvim with the command ```sudo cp -r runtime 
 ## Package Manager
 The package manager used is Lazy Loader
 
+[//]: # (TODO: update below icons section unless we are going to change the font to sourcecodepro fonts)
 ## Icons
 Icons for nvim-tree need to be installed on each system individually and set for the terminal. The Fonts used are called Sauce Code Pro Nerd (Nerd Fonts)
 
