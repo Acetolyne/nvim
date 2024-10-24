@@ -4,7 +4,7 @@ return {
   config = function()
     local lualine = require("lualine")
     local lazy_status = require("lazy.status") -- to configure lazy pending updates count
-
+    local vim = vim
     local colors = {
       blue = "#65D1FF",
       green = "#3EFFDC",
@@ -48,7 +48,7 @@ return {
         c = { bg = colors.inactive_bg, fg = colors.semilightgray },
       },
     }
-
+    
     -- configure lualine with modified theme
     lualine.setup({
       options = {
@@ -60,10 +60,17 @@ return {
             lazy_status.updates,
             cond = lazy_status.has_updates,
             color = { fg = "#ff9e64" },
+            vim.cmd("TrunkQuery"),
           },
           { "encoding" },
           { "fileformat" },
           { "filetype" },
+        },
+        lualine_y = {
+          {
+            -- vim.cmd("TrunkQuery"),
+            print("Acetolyne")
+          },
         },
       },
     })
