@@ -53,4 +53,11 @@ Mason is used to automatically install lsp servers that we can then use lspconfi
 todo comments is a way to search for todo items. add a todo with TODO: 
 other tags can also be used such as BUG NOTE FIX and more by default. you can also add your own tags if you need custom ones, instructions at https://github.com/folke/todo-comments.nvim
 
+## lualine
+A plugin to give you a statusbar that you can add informational sections to that allows you to have a summary of various things.
+
+## todos-lualine
+A plugin to let you see a summary of the todo-comments on lualine while editing a file.
+
+This only gives you a summary for the current file, I will need to research if I can allow it to give a summary for the entire project
 
