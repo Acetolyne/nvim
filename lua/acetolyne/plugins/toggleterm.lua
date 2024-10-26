@@ -16,3 +16,4 @@ return {"akinsho/toggleterm.nvim", config = function()
     },
   })
 end}
+-- TODO: if possible only open toggleterm if in fullscreen else hide until hotkey is used
