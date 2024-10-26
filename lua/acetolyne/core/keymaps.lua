@@ -14,7 +14,8 @@ keymap.set("n", "<leader>=", "<C-x>", { desc = "Decrement number" }) -- decremen
 
 -- nvim tree mappings
 
-keymap.set("n", "<leader>tt", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" }) -- toggle file explorer
+keymap.set("n", "<leader>t", "<cmd>NvimTreeFocus<CR>", { desc = "Open and focus file tree" }) -- toggle file explorer
+keymap.set("n", "<leader>tt", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file tree view" }) -- toggle file explorer
 keymap.set("n", "<leader>tf", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle file explorer on current file" }) -- toggle file explorer on current file
 keymap.set("n", "<leader>tc", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" }) -- collapse file explorer
 keymap.set("n", "<leader>tr", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" })
