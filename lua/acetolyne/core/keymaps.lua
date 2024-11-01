@@ -33,7 +33,7 @@ keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
 
 -- toggle visibility of kubectl ui
 
-keymap.set("n", "<leader>k", '<cmd>lua require("kubectl").toggle()<cr>', { noremap = true, silent = true })
+keymap.set("n", "<leader>k", '<cmd>lua require("kubectl").toggle()<cr>', { noremap = true, silent = true, desc = "toggle kubectl" })
 
 -- toggleterm
 keymap.set("n", "<leader>ss", "<cmd>ToggleTerm<cr>", {desc = "Toggle visibility of shell buffer"})
@@ -43,14 +43,13 @@ keymap.set("n", "<leader>sa", "<cmd>ToggleTermToggleAll<cr>", {desc = "Toggle vi
 
 -- toggle term keymaps for inside the terminal
 function _G.set_terminal_keymaps()
-  local opts = {buffer = 0}
-  vim.keymap.set('t', '<C-s>', [[<C-\><C-n>]], opts)
-  vim.keymap.set('t', 'jk', [[<C-\><C-n>]], opts)
-  vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
-  vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
-  vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
-  vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], opts)
-  vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]], opts)
+  vim.keymap.set('t', '<C-s>', [[<C-\><C-n>]], {buffer = 0, desc = "exit terminal mode"}
+  vim.keymap.set('t', 'jk', [[<C-\><C-n>]], {buffer = 0, desc = "UNKNOWN"})
+  vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], {buffer = 0, desc = "UNKNOWN"})
+  vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], {buffer = 0, desc = "UNKNOWN"})
+  vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], {buffer = 0, desc = "UNKNOWN"})
+  vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], {buffer = 0, desc = "UNKNOWN"})
+  vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]], {buffer = 0, desc = "UNKNOWN"})
 end
 
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
