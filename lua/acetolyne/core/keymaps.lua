@@ -54,3 +54,6 @@ end
 
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
+
+-- hotkey to format current file
+vim.keymap.set('n', '<leader>fb', [[gg=G]], {desc = "format current buffer"}) -- lsp formatting
