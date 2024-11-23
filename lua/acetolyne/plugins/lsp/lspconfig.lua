@@ -114,6 +114,13 @@ return {
           filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte", "tmpl" },
         })
       end,
+      ["djlint"] = function()
+        -- configure gohtml language server
+        lspconfig["djlint"].setup({
+          capabilities = capabilities,
+          filetypes = { "template", "htmldjango" },
+        })
+      end,
       ["lua_ls"] = function()
         -- configure lua server (with special settings)
         lspconfig["lua_ls"].setup({

@@ -34,6 +34,7 @@ return {
         "emmet_ls",
         "pyright",
         "gopls",
+        "djlint"
       },
     })
   end,
