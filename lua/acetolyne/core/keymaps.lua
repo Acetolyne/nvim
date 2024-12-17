@@ -39,7 +39,8 @@ keymap.set("n", "<leader>k", '<cmd>lua require("kubectl").toggle()<cr>', { norem
 keymap.set("n", "<leader>ss", "<cmd>ToggleTerm<cr>", {desc = "Toggle visibility of shell buffer"})
 keymap.set("n", "<leader>sa", "<cmd>ToggleTermToggleAll<cr>", {desc = "Toggle visibility of all shell buffers"})
 
-
+-- cheat sh
+keymap.set({"n","i"}, "<leader>cs", "<cmd>Cheat<cr>", {desc = "show cheat sh popup window"})
 
 -- toggle term keymaps for inside the terminal
 function _G.set_terminal_keymaps()
