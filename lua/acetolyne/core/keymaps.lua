@@ -44,7 +44,7 @@ keymap.set({"n","i"}, "<leader>cs", "<cmd>Cheat<cr>", {desc = "show cheat sh pop
 
 -- toggle term keymaps for inside the terminal
 function _G.set_terminal_keymaps()
-  vim.keymap.set('t', '<C-s>', [[<C-\><C-n>]], {buffer = 0, desc = "exit terminal mode"})
+  vim.keymap.set('t', '<C-t>', [[<C-\><C-n>]], {buffer = 0, desc = "exit terminal mode"})
   vim.keymap.set('t', 'jk', [[<C-\><C-n>]], {buffer = 0, desc = "UNKNOWN"})
   vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], {buffer = 0, desc = "UNKNOWN"})
   vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], {buffer = 0, desc = "UNKNOWN"})
