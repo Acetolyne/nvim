@@ -9,35 +9,35 @@ local keymap = vim.keymap
 --  }) 
 
 -- increment/decrement numbers
-keymap.set("n", "<leader>-", "<C-a>", { desc = "Increment number" }) -- increment
-keymap.set("n", "<leader>=", "<C-x>", { desc = "Decrement number" }) -- decrement
+--keymap.set("n", "<leader>-", "<C-a>", { desc = "Increment number" }) -- increment
+--keymap.set("n", "<leader>=", "<C-x>", { desc = "Decrement number" }) -- decrement
 
 -- nvim tree mappings
 
-keymap.set("n", "<leader>t", "<cmd>NvimTreeFocus<CR>", { desc = "Open and focus file tree" }) -- toggle file explorer
-keymap.set("n", "<leader>tt", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file tree view" }) -- toggle file explorer
-keymap.set("n", "<leader>tf", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle file explorer on current file" }) -- toggle file explorer on current file
-keymap.set("n", "<leader>tc", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" }) -- collapse file explorer
-keymap.set("n", "<leader>tr", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" })
+keymap.set("n", "<leader>f", "<cmd>NvimTreeFocus<CR>", { desc = "Open and focus file tree" }) -- toggle file explorer
+keymap.set("n", "<leader>ft", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file tree view" }) -- toggle file explorer
+keymap.set("n", "<leader>ff", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle file explorer on current file" }) -- toggle file explorer on current file
+keymap.set("n", "<leader>fc", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" }) -- collapse file explorer
+keymap.set("n", "<leader>fr", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" })
 
 -- telescope mappings
 
-keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
-keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
-keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
-keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
+keymap.set("n", "<leader>sf", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
+keymap.set("n", "<leader>sr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
+keymap.set("n", "<leader>ss", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
+keymap.set("n", "<leader>sc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
 
 -- find todo comments
 
-keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
+keymap.set("n", "<leader>st", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
 
 -- toggle visibility of kubectl ui
-
-keymap.set("n", "<leader>k", '<cmd>lua require("kubectl").toggle()<cr>', { noremap = true, silent = true, desc = "toggle kubectl" })
+--TODO: below causes issues when in regular project?
+--keymap.set("n", "<leader>k", '<cmd>lua require("kubectl").toggle()<cr>', { noremap = true, silent = true, desc = "toggle kubectl" })
 
 -- toggleterm
-keymap.set("n", "<leader>ss", "<cmd>ToggleTerm<cr>", {desc = "Toggle visibility of shell buffer"})
-keymap.set("n", "<leader>sa", "<cmd>ToggleTermToggleAll<cr>", {desc = "Toggle visibility of all shell buffers"})
+keymap.set("n", "<leader>ts", "<cmd>ToggleTerm<cr>", {desc = "Toggle visibility of shell buffer"})
+keymap.set("n", "<leader>ta", "<cmd>ToggleTermToggleAll<cr>", {desc = "Toggle visibility of all shell buffers"})
 
 -- cheat sh
 keymap.set({"n","i"}, "<leader>cs", "<cmd>Cheat<cr>", {desc = "show cheat sh popup window"})
