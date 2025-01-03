@@ -36,7 +36,7 @@ keymap.set("n", "<leader>st", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
 --keymap.set("n", "<leader>k", '<cmd>lua require("kubectl").toggle()<cr>', { noremap = true, silent = true, desc = "toggle kubectl" })
 
 -- toggleterm
-keymap.set("n", "<leader>ts", "<cmd>ToggleTerm<cr>", {desc = "Toggle visibility of shell buffer"})
+keymap.set("n", "<leader>tt", "<cmd>ToggleTerm<cr>", {desc = "Toggle visibility of shell buffer"})
 keymap.set("n", "<leader>ta", "<cmd>ToggleTermToggleAll<cr>", {desc = "Toggle visibility of all shell buffers"})
 
 -- cheat sh
