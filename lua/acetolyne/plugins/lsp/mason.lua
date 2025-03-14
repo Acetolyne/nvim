@@ -33,8 +33,7 @@ return {
         "graphql-language-service-cli",
         "emmet_ls",
         "pyright",
-        "gopls",
-        "djlint"
+        "gopls"
       },
     })
   end,
