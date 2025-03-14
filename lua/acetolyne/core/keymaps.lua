@@ -31,10 +31,6 @@ keymap.set("n", "<leader>sc", "<cmd>Telescope grep_string<cr>", { desc = "Find s
 
 keymap.set("n", "<leader>st", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
 
--- toggle visibility of kubectl ui
---TODO: below causes issues when in regular project?
---keymap.set("n", "<leader>k", '<cmd>lua require("kubectl").toggle()<cr>', { noremap = true, silent = true, desc = "toggle kubectl" })
-
 -- toggleterm
 keymap.set("n", "<leader>tt", "<cmd>ToggleTerm<cr>", {desc = "Toggle visibility of shell buffer"})
 keymap.set("n", "<leader>ta", "<cmd>ToggleTermToggleAll<cr>", {desc = "Toggle visibility of all shell buffers"})
