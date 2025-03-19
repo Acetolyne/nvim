@@ -30,12 +30,11 @@ return {
         "tailwindcss-language-server",
         "svelte-language-server",
         "lua-language-server",
-        "graphql-language-service-cli",
         "emmet_ls",
         "pyright",
-        "gopls",
-        "djlint"
+        "gopls"
       },
+      automatic_installation = true
     })
   end,
 }
