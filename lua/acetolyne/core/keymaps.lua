@@ -54,3 +54,6 @@ vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
 -- hotkey to format current file
 vim.keymap.set('n', '<leader>fb', [[gg=G]], {desc = "format current buffer"}) -- lsp formatting
+
+--hotkeys for claudecoder
+--TODO: add hotkeys from claude here after investigating the mode each hotkey should be set to
