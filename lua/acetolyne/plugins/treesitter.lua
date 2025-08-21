@@ -1,6 +1,6 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  event = { "BufReadPre", "BufNewFile" },
+  event = { "BufReadPost", "BufNewFile", "BufWritePre" }, -- More specific events
   build = ":TSUpdate",
   dependencies = {
     "windwp/nvim-ts-autotag",
@@ -23,7 +23,7 @@ return {
 
       sync_install = false,
       ignore_install = {},
-      auto_install = true,
+      auto_install = false, -- Disable auto-install for faster startup
 
       -- ensure these language parsers are installed
       ensure_installed = {

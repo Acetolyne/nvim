@@ -21,7 +21,7 @@ opt.smartcase = true -- if you include mixed case in your search, assumes you wa
 
 -- cursor line
 opt.cursorline = true -- highlight the current cursor line
-opt.scrolloff = 999
+opt.scrolloff = 8 -- Reasonable scroll offset instead of 999
 
 -- appearance
 
@@ -43,3 +43,17 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 -- turn off swapfile
 opt.swapfile = false
+
+-- Performance optimizations
+opt.updatetime = 250 -- Faster completion and hover
+opt.timeoutlen = 300 -- Faster which-key popup
+opt.sidescrolloff = 8
+
+-- Memory optimizations
+opt.hidden = true -- Allow hidden buffers
+opt.backup = false -- Don't create backup files
+opt.writebackup = false
+opt.undofile = true -- Persistent undo instead of swap files
+
+-- Lazy redraw for better performance
+opt.lazyredraw = true
