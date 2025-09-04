@@ -1,9 +1,35 @@
 return {
   {
     "coder/claudecode.nvim",
-    dependencies = { "folke/snacks.nvim" },
+    dependencies = { "folke/snacks.nvim", "akinsho/toggleterm.nvim" },
     opts = {
       terminal_cmd = "~/.local/bin/claude", -- Point to local installation
+      terminal = {
+        provider = function()
+          local Terminal = require('toggleterm.terminal').Terminal
+          local claude_term = Terminal:new({
+            cmd = "~/.local/bin/claude",
+            direction = "horizontal",
+            close_on_exit = false,
+            start_in_insert = true,
+            on_stdout = function(_, _, data)
+              -- Let claudecode handle output display in its buffer
+              -- This terminal is just for input
+            end,
+          })
+          
+          return {
+            open = function() 
+              -- Open both: claudecode output buffer + toggleterm input
+              vim.cmd('ClaudeCodeFocus')  -- Opens output buffer
+              claude_term:open()          -- Opens input terminal
+            end,
+            close = function() claude_term:close() end,
+            toggle = function() claude_term:toggle() end,
+            send = function(data) claude_term:send(data) end,
+          }
+        end
+      }
     },
     config = true,
     keys = {
