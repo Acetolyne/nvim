@@ -24,12 +24,12 @@ return {
     mason_lspconfig.setup({
       -- list of servers for mason to install
       ensure_installed = {
-        "typescript-language-server",
-        "html_lsp",
-        "css-lsp",
-        "tailwindcss-language-server",
-        "svelte-language-server",
-        "lua-language-server",
+        --"typescript-language-server",
+        --"html_lsp",
+        --"css-lsp",
+        --"tailwindcss-language-server",
+        --"svelte-language-server",
+        --"lua-language-server",
         "emmet_ls",
         "pyright",
         "gopls"
