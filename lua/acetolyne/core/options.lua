@@ -56,4 +56,8 @@ opt.writebackup = false
 opt.undofile = true -- Persistent undo instead of swap files
 
 -- Lazy redraw for better performance
-opt.lazyredraw = true
+-- TODO: possibly disable below as noice gives a warning about noice not being compatible with this setting
+--opt.lazyredraw = true
+
+-- unset linematch in diffopts to allow git hunks to work
+opt.diffopt = internal,filler,closeoff

@@ -1,6 +1,7 @@
 vim.g.mapleader = " "
 
 local keymap = vim.keymap
+--local neogit = require('neogit')
 
 -- @todo below should change to NvimTree so we get the file list on the side instead of taking over the current buffer
 --vim.keymap.set('n', '<leader>f', ':Explore<CR>', {
@@ -57,3 +58,14 @@ vim.keymap.set('n', '<leader>fb', [[gg=G]], {desc = "format current buffer"}) --
 
 --hotkeys for claudecoder
 --TODO: add hotkeys from claude here after investigating the mode each hotkey should be set to
+
+-- noice keymaps
+-- TODO: add any noice plugin keymaps here
+
+-- git signs
+-- TODO: add gitsigns keymaps here instead of in the gitsigns setup
+vim.keymap.set('n', '<leader>gb', "<cmd>Gitsigns toggle_current_line_blame<cr>", {desc = "toggle git line blame"})
+vim.keymap.set('n', '<leader>gh', "<cmd>Gitsigns preview_hunk_inline<cr>", {desc = "toggle git inline hunk"})
+
+-- neogit keymaps
+-- NOTE: neogit keymaps are configured in neogit.lua plugin file to ensure the plugin is loaded first
