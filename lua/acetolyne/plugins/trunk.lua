@@ -4,13 +4,15 @@ return {
 		-- optionally pin the version
 		-- tag = "v0.1.1",
 		-- these are optional config arguments (defaults shown)
-		config = {
-			trunkPath = "trunk",
-			-- lspArgs = {},
-			formatOnSave = false,
-                        -- formatOnSaveTimeout = 10, -- seconds
-			logLevel = "debug"
-		},
+		config = function()
+			require("trunk").setup({
+				trunkPath = "trunk",
+				-- lspArgs = {},
+				formatOnSave = false,
+				-- formatOnSaveTimeout = 10, -- seconds
+				logLevel = "debug"
+			})
+		end,
 		main = "trunk",
 		dependencies = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"}
 }
