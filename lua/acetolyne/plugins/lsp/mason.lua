@@ -29,7 +29,7 @@ return {
         --"css-lsp",
         --"tailwindcss-language-server",
         --"svelte-language-server",
-        --"lua-language-server",
+        "lua_ls",
         "emmet_ls",
         "pyright",
         "gopls"
