@@ -1,0 +1,1 @@
+-- Bootstrap entry for lazy.nvim; logic lives in lua/neovim-debugger/

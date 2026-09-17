@@ -69,3 +69,6 @@ vim.keymap.set('n', '<leader>gh', "<cmd>Gitsigns preview_hunk_inline<cr>", {desc
 
 -- neogit keymaps
 -- NOTE: neogit keymaps are configured in neogit.lua plugin file to ensure the plugin is loaded first
+
+-- cursor
+
