@@ -1,5 +1,6 @@
 return {
   "trunk-io/neovim-trunk",
+    enabled = true,
 		lazy = false,
 		-- optionally pin the version
 		-- tag = "v0.1.1",
