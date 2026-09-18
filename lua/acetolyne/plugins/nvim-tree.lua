@@ -32,6 +32,9 @@ return {
       -- explorer to work well with
       -- window splits
       actions = {
+        change_dir = {
+          restrict_above_cwd = true,
+        },
         open_file = {
           window_picker = {
             enable = false,
