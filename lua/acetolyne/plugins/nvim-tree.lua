@@ -20,7 +20,7 @@ return {
         },
         icons = {
           -- Change this value to 'before', 'after', 'signcolumn', or 'right_align'
-          git_placement = "signcolumn",
+          git_placement = "after",
           glyphs = {
             folder = {
               arrow_closed = "", -- arrow when folder is closed
