@@ -43,6 +43,7 @@ return {
         custom = { ".DS_Store" },
       },
       git = {
+        enable = true,
         ignore = false,
       },
       sync_root_with_cwd = true,
