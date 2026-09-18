@@ -1,6 +1,6 @@
 return {
   "trunk-io/neovim-trunk",
-  enabled = false, -- disabled: Trunk CLI SSL failure crashes plugin on startup
+  enabled = true, -- disabled: Trunk CLI SSL failure crashes plugin on startup
   lazy = false,
   config = function()
     require("trunk").setup({
