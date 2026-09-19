@@ -60,7 +60,7 @@ return {
         c = { bg = colors.inactive_bg, fg = colors.semilightgray },
       },
     }
-    
+
     -- configure lualine with modified theme
     lualine.setup({
       options = {
@@ -70,7 +70,7 @@ return {
         lualine_b = {
           -- 1. Display the git branch name
           { 'branch' },
-      
+
           -- 2. Display the gitsigns diff counts with icons
           {
             'diff',
