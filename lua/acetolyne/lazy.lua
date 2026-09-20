@@ -14,6 +14,6 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({ { import = "acetolyne.plugins" }, { import = "acetolyne.plugins.lsp" } }, {
   checker = {
     enabled = true,
-    notify = false,
+    notify = true,
   },
 })

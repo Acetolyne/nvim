@@ -19,6 +19,8 @@ return {
           enable = true,
         },
         icons = {
+          -- Change this value to 'before', 'after', 'signcolumn', or 'right_align'
+          git_placement = "after",
           glyphs = {
             folder = {
               arrow_closed = "", -- arrow when folder is closed
@@ -31,6 +33,9 @@ return {
       -- explorer to work well with
       -- window splits
       actions = {
+        change_dir = {
+          restrict_above_cwd = true,
+        },
         open_file = {
           window_picker = {
             enable = false,
@@ -42,6 +47,7 @@ return {
         custom = { ".DS_Store" },
       },
       git = {
+        enable = true,
         ignore = false,
       },
       sync_root_with_cwd = true,

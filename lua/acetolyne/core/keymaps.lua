@@ -1,6 +1,7 @@
 vim.g.mapleader = " "
 
 local keymap = vim.keymap
+--local neogit = require('neogit')
 
 -- @todo below should change to NvimTree so we get the file list on the side instead of taking over the current buffer
 --vim.keymap.set('n', '<leader>f', ':Explore<CR>', {
@@ -41,12 +42,7 @@ keymap.set({"n","i"}, "<leader>cs", "<cmd>Cheat<cr>", {desc = "show cheat sh pop
 -- toggle term keymaps for inside the terminal
 function _G.set_terminal_keymaps()
   vim.keymap.set('t', '<C-t>', [[<C-\><C-n>]], {buffer = 0, desc = "exit terminal mode"})
-  vim.keymap.set('t', 'jk', [[<C-\><C-n>]], {buffer = 0, desc = "UNKNOWN"})
-  vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], {buffer = 0, desc = "UNKNOWN"})
-  vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], {buffer = 0, desc = "UNKNOWN"})
-  vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], {buffer = 0, desc = "UNKNOWN"})
-  vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], {buffer = 0, desc = "UNKNOWN"})
-  vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]], {buffer = 0, desc = "UNKNOWN"})
+  vim.keymap.set('t', 'jk', [[<C-\><C-n>]], {buffer = 0, desc = "exit terminal mode"})
 end
 
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
@@ -57,3 +53,14 @@ vim.keymap.set('n', '<leader>fb', [[gg=G]], {desc = "format current buffer"}) --
 
 --hotkeys for claudecoder
 --TODO: add hotkeys from claude here after investigating the mode each hotkey should be set to
+
+-- noice keymaps
+-- TODO: add any noice plugin keymaps here
+
+-- git signs
+-- TODO: add gitsigns keymaps here instead of in the gitsigns setup
+vim.keymap.set('n', '<leader>gb', "<cmd>Gitsigns toggle_current_line_blame<cr>", {desc = "toggle git line blame"})
+vim.keymap.set('n', '<leader>gh', "<cmd>Gitsigns preview_hunk_inline<cr>", {desc = "toggle git inline hunk"})
+
+-- neogit keymaps
+-- NOTE: neogit keymaps are configured in neogit.lua plugin file to ensure the plugin is loaded first

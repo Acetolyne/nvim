@@ -35,7 +35,12 @@ opt.signcolumn = "yes" -- show sign column so that text doesn't shift
 opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
 
 -- clipboard
-opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+-- macOS: pbcopy/pbpaste don't hang, so use the built-in system clipboard integration
+-- Linux: automatic clipboard is DISABLED because wl-clipboard can freeze nvim;
+-- core/clipboard.lua provides manual keybinds with timeout protection instead
+if vim.fn.has("mac") == 1 then
+  opt.clipboard:append("unnamedplus")
+end
 
 -- split windows
 opt.splitright = true -- split vertical window to the right
@@ -56,4 +61,8 @@ opt.writebackup = false
 opt.undofile = true -- Persistent undo instead of swap files
 
 -- Lazy redraw for better performance
-opt.lazyredraw = true
+-- TODO: possibly disable below as noice gives a warning about noice not being compatible with this setting
+--opt.lazyredraw = true
+
+-- unset linematch in diffopts to allow git hunks to work
+opt.diffopt = internal,filler,closeoff
