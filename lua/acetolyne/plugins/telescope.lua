@@ -2,12 +2,6 @@ return {
   "nvim-telescope/telescope.nvim",
   branch = "0.1.x",
   cmd = "Telescope", -- Lazy load on command
-  keys = {
-    {"<leader>sf", "<cmd>Telescope find_files<cr>", desc = "Find files"},
-    {"<leader>sr", "<cmd>Telescope oldfiles<cr>", desc = "Recent files"},
-    {"<leader>ss", "<cmd>Telescope live_grep<cr>", desc = "Live grep"},
-    {"<leader>sc", "<cmd>Telescope grep_string<cr>", desc = "Grep string"},
-  },
   dependencies = {
     "nvim-lua/plenary.nvim",
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },

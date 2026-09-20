@@ -42,12 +42,7 @@ keymap.set({"n","i"}, "<leader>cs", "<cmd>Cheat<cr>", {desc = "show cheat sh pop
 -- toggle term keymaps for inside the terminal
 function _G.set_terminal_keymaps()
   vim.keymap.set('t', '<C-t>', [[<C-\><C-n>]], {buffer = 0, desc = "exit terminal mode"})
-  vim.keymap.set('t', 'jk', [[<C-\><C-n>]], {buffer = 0, desc = "UNKNOWN"})
-  vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], {buffer = 0, desc = "UNKNOWN"})
-  vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], {buffer = 0, desc = "UNKNOWN"})
-  vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], {buffer = 0, desc = "UNKNOWN"})
-  vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], {buffer = 0, desc = "UNKNOWN"})
-  vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]], {buffer = 0, desc = "UNKNOWN"})
+  vim.keymap.set('t', 'jk', [[<C-\><C-n>]], {buffer = 0, desc = "exit terminal mode"})
 end
 
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead

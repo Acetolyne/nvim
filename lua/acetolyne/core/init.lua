@@ -8,5 +8,7 @@ require("acetolyne.core.options")
 
 require("acetolyne.core.keymaps")
 
--- Setup safe clipboard with timeout protection
-require("acetolyne.core.clipboard").setup()
+-- Setup safe clipboard with timeout protection (Linux/wl-clipboard only; macOS uses unnamedplus)
+if vim.fn.has("mac") ~= 1 then
+  require("acetolyne.core.clipboard").setup()
+end

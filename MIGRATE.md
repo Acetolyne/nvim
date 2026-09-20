@@ -1,16 +1,6 @@
-# Neovim Keybindings
+# Keybindings to migrate
 
-Leader is `<Space>`. The "Defined in" column tracks where each key is set; the goal is for everything to live in `core/keymaps.lua`. Paths are relative to `lua/acetolyne/`. Collected from the config files; not tested in a live session.
-
-## Files and explorer (nvim-tree)
-| Key | Action | Defined in |
-|---|---|---|
-| `<leader>f` | Open and focus the file tree | `core/keymaps.lua` |
-| `<leader>ft` | Toggle the file tree | `core/keymaps.lua` |
-| `<leader>ff` | Toggle the tree on the current file | `core/keymaps.lua` |
-| `<leader>fc` | Collapse the tree | `core/keymaps.lua` |
-| `<leader>fr` | Refresh the tree | `core/keymaps.lua` |
-| `<leader>fb` | Reformat the whole buffer (`gg=G`, re-indents, not LSP formatting) | `core/keymaps.lua` |
+Keys from `KEYBINDINGS.md` that are not (or not only) set in `core/keymaps.lua`. Paths are relative to `lua/acetolyne/`.
 
 ## Search (Telescope)
 | Key | Action | Defined in |
@@ -19,9 +9,6 @@ Leader is `<Space>`. The "Defined in" column tracks where each key is set; the g
 | `<leader>sr` | Recent files | `core/keymaps.lua` and `plugins/telescope.lua` (duplicate) |
 | `<leader>ss` | Live grep in the cwd | `core/keymaps.lua` and `plugins/telescope.lua` (duplicate) |
 | `<leader>sc` | Grep the word under the cursor | `core/keymaps.lua` and `plugins/telescope.lua` (duplicate) |
-| `<leader>st` | Find TODO comments | `core/keymaps.lua` |
-
-Inside Telescope: `<C-k>` and `<C-j>` move up and down, and `<C-q>` sends the selected results to the quickfix list (defined in `plugins/telescope.lua`).
 
 ## LSP (only active in buffers with an LSP attached)
 | Key | Action | Defined in |
@@ -69,20 +56,6 @@ Inside Telescope: `<C-k>` and `<C-j>` move up and down, and `<C-q>` sends the se
 | `<leader>tw` | Toggle word diff | `plugins/gitsigns.lua` |
 | `ih` (operator/visual) | Select the hunk as a text object | `plugins/gitsigns.lua` |
 
-## Terminal (ToggleTerm)
-| Key | Action | Defined in |
-|---|---|---|
-| `<leader>tt` | Toggle the shell buffer | `core/keymaps.lua` |
-| `<leader>ta` | Toggle all shell buffers | `core/keymaps.lua` |
-
-In terminal mode:
-
-| Key | Action | Defined in |
-|---|---|---|
-| `<C-t>` / `jk` | Exit to normal mode | `core/keymaps.lua` |
-| `<C-h/j/k/l>` | Move between windows | `core/keymaps.lua` |
-| `<C-w>` | Window command prefix | `core/keymaps.lua` |
-
 ## Clipboard (system clipboard, custom)
 | Key | Action | Defined in |
 |---|---|---|
@@ -102,7 +75,6 @@ In terminal mode:
 | Key | Action | Defined in |
 |---|---|---|
 | `<C-Space>` | Treesitter: start / grow the selection | `plugins/treesitter.lua` |
-| `<leader>cs` | Cheat.sh popup (normal and insert) | `core/keymaps.lua` |
 
 ## Claude Code and Comment.nvim
 | Key | Action | Defined in |
@@ -111,10 +83,8 @@ In terminal mode:
 | `<leader>cc` / `<leader>cv` / `<leader>cr` | Claude Code with continue / verbose / resume | `plugins/claudecode.lua` |
 | `gcc` / `gbc` / `gc` / `gb` / `gco` / `gcO` / `gcA` | Comment toggles and extras | `plugins/comment.lua` (plugin defaults) |
 
-## Still outside `core/keymaps.lua`
-Any row whose "Defined in" column names another file still needs moving: LSP, Trouble, TODO comments, Neogit, gitsigns (except `gb`/`gh`), clipboard, nvim-cmp, treesitter, Telescope's in-picker keys, Claude Code and Comment.nvim. The Telescope `<leader>s*` keys are defined in both places and should be removed from `plugins/telescope.lua`.
-
-## Notes
-- `<leader>f` sits on the same prefix as `ft`, `ff`, `fc`, `fr` and `fb`. Vim waits out `timeoutlen` before it fires, so opening the tree feels slightly delayed.
-- Three terminal maps (`jk`, `<C-h/j/k/l>`, `<C-w>`) have the description "UNKNOWN".
-- Some mappings not listed are plugin defaults, such as the nvim-tree buffer keys and the Neogit UI keys.
+## Search (Telescope), inside the picker
+| Key | Action | Defined in |
+|---|---|---|
+| `<C-k>` / `<C-j>` | Move up / down | `plugins/telescope.lua` |
+| `<C-q>` | Send selected results to the quickfix list | `plugins/telescope.lua` |

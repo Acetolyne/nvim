@@ -35,10 +35,12 @@ opt.signcolumn = "yes" -- show sign column so that text doesn't shift
 opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
 
 -- clipboard
--- DISABLE automatic clipboard to prevent freezing with wl-clipboard
--- We'll use manual keybinds with timeout protection instead
--- DO NOT append to clipboard option as it causes blocking calls
--- opt.clipboard:append("unnamedplus")
+-- macOS: pbcopy/pbpaste don't hang, so use the built-in system clipboard integration
+-- Linux: automatic clipboard is DISABLED because wl-clipboard can freeze nvim;
+-- core/clipboard.lua provides manual keybinds with timeout protection instead
+if vim.fn.has("mac") == 1 then
+  opt.clipboard:append("unnamedplus")
+end
 
 -- split windows
 opt.splitright = true -- split vertical window to the right
