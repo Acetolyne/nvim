@@ -3,6 +3,14 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons", "folke/todo-comments.nvim" },
   opts = {
     focus = true,
+    win = {
+      type = "float",
+      relative = "editor",
+      border = "rounded",
+      position = { 0.5, 0.5 },
+      size = { width = 0.7, height = 0.6 },
+      zindex = 200,
+    },
   },
   cmd = "Trouble",
   keys = {
