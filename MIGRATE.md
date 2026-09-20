@@ -1,14 +1,8 @@
 # Keybindings to migrate
 
-Keys from `KEYBINDINGS.md` that are not (or not only) set in `core/keymaps.lua`. Paths are relative to `lua/acetolyne/`.
+Keys from `KEYBINDINGS.md` that are not yet set in `core/keymaps.lua`. Paths are relative to `lua/acetolyne/`. Last checked 2026-09-19.
 
-## Search (Telescope)
-| Key | Action | Defined in |
-|---|---|---|
-| `<leader>sf` | Fuzzy find files in the cwd | `core/keymaps.lua` and `plugins/telescope.lua` (duplicate) |
-| `<leader>sr` | Recent files | `core/keymaps.lua` and `plugins/telescope.lua` (duplicate) |
-| `<leader>ss` | Live grep in the cwd | `core/keymaps.lua` and `plugins/telescope.lua` (duplicate) |
-| `<leader>sc` | Grep the word under the cursor | `core/keymaps.lua` and `plugins/telescope.lua` (duplicate) |
+Already moved: nvim-tree, Telescope `<leader>s*` (the duplicates in `plugins/telescope.lua` are gone), ToggleTerm, Cheat.sh, gitsigns `gb`/`gh`, and all Claude Code keys.
 
 ## LSP (only active in buffers with an LSP attached)
 | Key | Action | Defined in |
@@ -56,7 +50,9 @@ Keys from `KEYBINDINGS.md` that are not (or not only) set in `core/keymaps.lua`.
 | `<leader>tw` | Toggle word diff | `plugins/gitsigns.lua` |
 | `ih` (operator/visual) | Select the hunk as a text object | `plugins/gitsigns.lua` |
 
-## Clipboard (system clipboard, custom)
+## Clipboard (system clipboard, Linux only)
+Not loaded on macOS (`unnamedplus` is used there instead), so migrate with an OS check.
+
 | Key | Action | Defined in |
 |---|---|---|
 | `<leader>y` | Copy the line (normal) or selection (visual) to the system clipboard | `core/clipboard.lua` |
@@ -76,11 +72,9 @@ Keys from `KEYBINDINGS.md` that are not (or not only) set in `core/keymaps.lua`.
 |---|---|---|
 | `<C-Space>` | Treesitter: start / grow the selection | `plugins/treesitter.lua` |
 
-## Claude Code and Comment.nvim
+## Comment.nvim
 | Key | Action | Defined in |
 |---|---|---|
-| `<leader>ct` | Toggle Claude Code (normal and terminal) | `plugins/claudecode.lua` |
-| `<leader>cc` / `<leader>cv` / `<leader>cr` | Claude Code with continue / verbose / resume | `plugins/claudecode.lua` |
 | `gcc` / `gbc` / `gc` / `gb` / `gco` / `gcO` / `gcA` | Comment toggles and extras | `plugins/comment.lua` (plugin defaults) |
 
 ## Search (Telescope), inside the picker

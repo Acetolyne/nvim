@@ -51,9 +51,6 @@ vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 -- hotkey to format current file
 vim.keymap.set('n', '<leader>fb', [[gg=G]], {desc = "format current buffer"}) -- lsp formatting
 
---hotkeys for claudecoder
---TODO: add hotkeys from claude here after investigating the mode each hotkey should be set to
-
 -- noice keymaps
 -- TODO: add any noice plugin keymaps here
 
@@ -64,3 +61,23 @@ vim.keymap.set('n', '<leader>gh', "<cmd>Gitsigns preview_hunk_inline<cr>", {desc
 
 -- neogit keymaps
 -- NOTE: neogit keymaps are configured in neogit.lua plugin file to ensure the plugin is loaded first
+
+-- claude code keymaps
+keymap.set({ "n", "x" }, "<leader>ct", "<cmd>ClaudeCodeFocus<cr>", { desc = "Toggle/focus Claude Code" })
+keymap.set("n", "<leader>cc", "<cmd>ClaudeCode --continue<cr>", { desc = "Claude Code: continue last conversation" })
+keymap.set("n", "<leader>cr", "<cmd>ClaudeCode --resume<cr>", { desc = "Claude Code: resume (pick conversation)" })
+keymap.set("n", "<leader>cm", "<cmd>ClaudeCodeSelectModel<cr>", { desc = "Claude Code: select model" })
+keymap.set("n", "<leader>cb", "<cmd>ClaudeCodeAdd %<cr>", { desc = "Claude Code: add current buffer" })
+keymap.set("v", "<leader>cv", "<cmd>ClaudeCodeSend<cr>", { desc = "Claude Code: send selection" })
+
+-- in file trees <leader>cb adds the file under the cursor instead of the tree buffer
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "NvimTree", "neo-tree", "oil", "minifiles" },
+  callback = function(ev)
+    keymap.set("n", "<leader>cb", "<cmd>ClaudeCodeTreeAdd<cr>", { buffer = ev.buf, desc = "Claude Code: add file" })
+  end,
+})
+
+-- diff management (Claude's proposed edits open as diffs in nvim)
+keymap.set("n", "<leader>cy", "<cmd>ClaudeCodeDiffAccept<cr>", { desc = "Claude Code: accept diff" })
+keymap.set("n", "<leader>cn", "<cmd>ClaudeCodeDiffDeny<cr>", { desc = "Claude Code: deny diff" })

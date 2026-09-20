@@ -1,6 +1,6 @@
 # Neovim Keybindings
 
-Leader is `<Space>`. The "Defined in" column tracks where each key is set; the goal is for everything to live in `core/keymaps.lua`. Paths are relative to `lua/acetolyne/`. Collected from the config files; not tested in a live session.
+Leader is `<Space>`. The "Defined in" column tracks where each key is set; the goal is for everything to live in `core/keymaps.lua`. Paths are relative to `lua/acetolyne/`. Collected by reading the config files (last checked 2026-09-19); not tested in a live session.
 
 ## Files and explorer (nvim-tree)
 | Key | Action | Defined in |
@@ -15,10 +15,10 @@ Leader is `<Space>`. The "Defined in" column tracks where each key is set; the g
 ## Search (Telescope)
 | Key | Action | Defined in |
 |---|---|---|
-| `<leader>sf` | Fuzzy find files in the cwd | `core/keymaps.lua` and `plugins/telescope.lua` (duplicate) |
-| `<leader>sr` | Recent files | `core/keymaps.lua` and `plugins/telescope.lua` (duplicate) |
-| `<leader>ss` | Live grep in the cwd | `core/keymaps.lua` and `plugins/telescope.lua` (duplicate) |
-| `<leader>sc` | Grep the word under the cursor | `core/keymaps.lua` and `plugins/telescope.lua` (duplicate) |
+| `<leader>sf` | Fuzzy find files in the cwd | `core/keymaps.lua` |
+| `<leader>sr` | Recent files | `core/keymaps.lua` |
+| `<leader>ss` | Live grep in the cwd | `core/keymaps.lua` |
+| `<leader>sc` | Grep the word under the cursor | `core/keymaps.lua` |
 | `<leader>st` | Find TODO comments | `core/keymaps.lua` |
 
 Inside Telescope: `<C-k>` and `<C-j>` move up and down, and `<C-q>` sends the selected results to the quickfix list (defined in `plugins/telescope.lua`).
@@ -80,10 +80,10 @@ In terminal mode:
 | Key | Action | Defined in |
 |---|---|---|
 | `<C-t>` / `jk` | Exit to normal mode | `core/keymaps.lua` |
-| `<C-h/j/k/l>` | Move between windows | `core/keymaps.lua` |
-| `<C-w>` | Window command prefix | `core/keymaps.lua` |
 
-## Clipboard (system clipboard, custom)
+## Clipboard (system clipboard, Linux only)
+On macOS `core/clipboard.lua` is not loaded and `clipboard=unnamedplus` is set in `core/options.lua`, so plain `y`, `d` and `p` use the system clipboard and these two keys do not exist. On Linux `unnamedplus` stays off because `wl-clipboard` can freeze Neovim; these keys call `wl-copy`/`wl-paste` asynchronously with a timeout instead.
+
 | Key | Action | Defined in |
 |---|---|---|
 | `<leader>y` | Copy the line (normal) or selection (visual) to the system clipboard | `core/clipboard.lua` |
@@ -104,17 +104,29 @@ In terminal mode:
 | `<C-Space>` | Treesitter: start / grow the selection | `plugins/treesitter.lua` |
 | `<leader>cs` | Cheat.sh popup (normal and insert) | `core/keymaps.lua` |
 
-## Claude Code and Comment.nvim
+## Claude Code (coder/claudecode.nvim)
+Keys are set in `core/keymaps.lua`; `plugins/claudecode.lua` only lists the commands so the plugin loads on first use. `<leader>ca` (LSP code action) and `<leader>cs` (Cheat) were avoided on purpose.
+
 | Key | Action | Defined in |
 |---|---|---|
-| `<leader>ct` | Toggle Claude Code (normal and terminal) | `plugins/claudecode.lua` |
-| `<leader>cc` / `<leader>cv` / `<leader>cr` | Claude Code with continue / verbose / resume | `plugins/claudecode.lua` |
+| `<leader>ct` | Toggle/focus the Claude Code terminal (normal and visual) | `core/keymaps.lua` |
+| `<leader>cc` | Continue the last conversation | `core/keymaps.lua` |
+| `<leader>cr` | Resume a conversation (picker) | `core/keymaps.lua` |
+| `<leader>cm` | Select the model | `core/keymaps.lua` |
+| `<leader>cb` | Add the current buffer to Claude's context | `core/keymaps.lua` |
+| `<leader>cb` (in NvimTree, neo-tree, oil, minifiles) | Add the file under the cursor (buffer-local, overrides the global map) | `core/keymaps.lua` (FileType autocmd) |
+| `<leader>cv` | Send the visual selection to Claude | `core/keymaps.lua` |
+| `<leader>cy` / `<leader>cn` | Accept / deny Claude's proposed diff | `core/keymaps.lua` |
+
+## Comment.nvim
+| Key | Action | Defined in |
+|---|---|---|
 | `gcc` / `gbc` / `gc` / `gb` / `gco` / `gcO` / `gcA` | Comment toggles and extras | `plugins/comment.lua` (plugin defaults) |
 
 ## Still outside `core/keymaps.lua`
-Any row whose "Defined in" column names another file still needs moving: LSP, Trouble, TODO comments, Neogit, gitsigns (except `gb`/`gh`), clipboard, nvim-cmp, treesitter, Telescope's in-picker keys, Claude Code and Comment.nvim. The Telescope `<leader>s*` keys are defined in both places and should be removed from `plugins/telescope.lua`.
+Any row whose "Defined in" column names another file still needs moving: LSP, Trouble, TODO comments, Neogit, gitsigns (except `gb`/`gh`), clipboard, nvim-cmp, treesitter, Telescope's in-picker keys and Comment.nvim. See `MIGRATE.md` for the working list.
 
 ## Notes
-- `<leader>f` sits on the same prefix as `ft`, `ff`, `fc`, `fr` and `fb`. Vim waits out `timeoutlen` before it fires, so opening the tree feels slightly delayed.
-- Three terminal maps (`jk`, `<C-h/j/k/l>`, `<C-w>`) have the description "UNKNOWN".
+- `<leader>f` sits on the same prefix as `ft`, `ff`, `fc`, `fr` and `fb`. Vim waits out `timeoutlen` before it fires, so opening the tree feels slightly delayed.- `<leader>c` is shared between LSP code actions (`ca`), Cheat.sh (`cs`) and Claude Code (`ct`, `cc`, `cr`, `cm`, `cb`, `cv`, `cy`, `cn`); check for clashes before adding another.
+- The old terminal-mode maps `<C-h/j/k/l>` and `<C-w>` came from the previous `greggh/claude-code.nvim` plugin and are gone. Terminal mode now only has `<C-t>` and `jk` to leave insert mode.
 - Some mappings not listed are plugin defaults, such as the nvim-tree buffer keys and the Neogit UI keys.

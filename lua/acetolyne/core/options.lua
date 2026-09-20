@@ -65,4 +65,4 @@ opt.undofile = true -- Persistent undo instead of swap files
 --opt.lazyredraw = true
 
 -- unset linematch in diffopts to allow git hunks to work
-opt.diffopt = internal,filler,closeoff
+opt.diffopt = "internal,filler,closeoff"
