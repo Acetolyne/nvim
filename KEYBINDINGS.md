@@ -5,12 +5,13 @@ Leader is `<Space>`. The "Defined in" column tracks where each key is set; the g
 ## Files and explorer (nvim-tree)
 | Key | Action | Defined in |
 |---|---|---|
-| `<leader>f` | Open and focus the file tree | `core/keymaps.lua` |
+| `<leader>fo` | Open and focus the file tree | `core/keymaps.lua` |
 | `<leader>ft` | Toggle the file tree | `core/keymaps.lua` |
 | `<leader>ff` | Toggle the tree on the current file | `core/keymaps.lua` |
 | `<leader>fc` | Collapse the tree | `core/keymaps.lua` |
 | `<leader>fr` | Refresh the tree | `core/keymaps.lua` |
-| `<leader>fb` | Reformat the whole buffer (`gg=G`, re-indents, not LSP formatting) | `core/keymaps.lua` |
+| `<leader>fb` | Format the current buffer with the LSP | `core/keymaps.lua` |
+| `<leader>fi` | Re-indent the whole buffer (`gg=G`, cursor position kept) | `core/keymaps.lua` |
 
 ## Search (Telescope)
 | Key | Action | Defined in |
@@ -127,6 +128,7 @@ Keys are set in `core/keymaps.lua`; `plugins/claudecode.lua` only lists the comm
 Any row whose "Defined in" column names another file still needs moving: LSP, Trouble, TODO comments, Neogit, gitsigns (except `gb`/`gh`), clipboard, nvim-cmp, treesitter, Telescope's in-picker keys and Comment.nvim. See `MIGRATE.md` for the working list.
 
 ## Notes
-- `<leader>f` sits on the same prefix as `ft`, `ff`, `fc`, `fr` and `fb`. Vim waits out `timeoutlen` before it fires, so opening the tree feels slightly delayed.- `<leader>c` is shared between LSP code actions (`ca`), Cheat.sh (`cs`) and Claude Code (`ct`, `cc`, `cr`, `cm`, `cb`, `cv`, `cy`, `cn`); check for clashes before adding another.
+- `<leader>f` is only a prefix (`fo`, `ft`, `ff`, `fc`, `fr`, `fb`, `fi`) and is not mapped on its own, so there is no `timeoutlen` delay before the tree opens.
+- `<leader>c` is shared between LSP code actions (`ca`), Cheat.sh (`cs`) and Claude Code (`ct`, `cc`, `cr`, `cm`, `cb`, `cv`, `cy`, `cn`); check for clashes before adding another.
 - The old terminal-mode maps `<C-h/j/k/l>` and `<C-w>` came from the previous `greggh/claude-code.nvim` plugin and are gone. Terminal mode now only has `<C-t>` and `jk` to leave insert mode.
 - Some mappings not listed are plugin defaults, such as the nvim-tree buffer keys and the Neogit UI keys.

@@ -15,7 +15,7 @@ local keymap = vim.keymap
 
 -- nvim tree mappings
 
-keymap.set("n", "<leader>f", "<cmd>NvimTreeFocus<CR>", { desc = "Open and focus file tree" }) -- toggle file explorer
+keymap.set("n", "<leader>fo", "<cmd>NvimTreeFocus<CR>", { desc = "Open and focus file tree" }) -- toggle file explorer
 keymap.set("n", "<leader>ft", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file tree view" }) -- toggle file explorer
 keymap.set("n", "<leader>ff", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle file explorer on current file" }) -- toggle file explorer on current file
 keymap.set("n", "<leader>fc", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" }) -- collapse file explorer
@@ -41,15 +41,16 @@ keymap.set({"n","i"}, "<leader>cs", "<cmd>Cheat<cr>", {desc = "show cheat sh pop
 
 -- toggle term keymaps for inside the terminal
 function _G.set_terminal_keymaps()
-  vim.keymap.set('t', '<C-t>', [[<C-\><C-n>]], {buffer = 0, desc = "exit terminal mode"})
+  --vim.keymap.set('t', '<C-t>', [[<C-\><C-n>]], {buffer = 0, desc = "exit terminal mode"})
   vim.keymap.set('t', 'jk', [[<C-\><C-n>]], {buffer = 0, desc = "exit terminal mode"})
 end
 
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
--- hotkey to format current file
-vim.keymap.set('n', '<leader>fb', [[gg=G]], {desc = "format current buffer"}) -- lsp formatting
+-- hotkeys to format current file
+keymap.set('n', '<leader>fb', function() vim.lsp.buf.format({ async = true }) end, {desc = "format current buffer (LSP)"})
+keymap.set('n', '<leader>fi', "mzgg=G`z", {desc = "re-indent current buffer"})
 
 -- noice keymaps
 -- TODO: add any noice plugin keymaps here
