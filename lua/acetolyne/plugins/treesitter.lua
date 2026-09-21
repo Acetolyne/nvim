@@ -1,5 +1,6 @@
 return {
   "nvim-treesitter/nvim-treesitter",
+  branch = "master", -- "main" is a rewrite without nvim-treesitter.configs
   event = { "BufReadPost", "BufNewFile", "BufWritePre" }, -- More specific events
   build = ":TSUpdate",
   dependencies = {
