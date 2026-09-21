@@ -20,6 +20,7 @@ return {
           enable = true,
         },
         icons = {
+          git_placement = "after",
           glyphs = {
             folder = {
               arrow_closed = "", -- arrow when folder is closed
