@@ -45,8 +45,8 @@ return {
           { "<leader>rn", vim.lsp.buf.rename, desc = "Smart rename" },
           { "<leader>rs", "<cmd>LspRestart<CR>", desc = "Restart LSP" },
 
-          { "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", desc = "Show buffer diagnostics" },
-          { "<leader>d", vim.diagnostic.open_float, desc = "Show line diagnostics" },
+          { "<leader>db", "<cmd>Telescope diagnostics bufnr=0<CR>", desc = "Show buffer diagnostics" },
+          { "<leader>dl", vim.diagnostic.open_float, desc = "Show line diagnostics" },
           { "[d", vim.diagnostic.goto_prev, desc = "Go to previous diagnostic" },
           { "]d", vim.diagnostic.goto_next, desc = "Go to next diagnostic" },
 
