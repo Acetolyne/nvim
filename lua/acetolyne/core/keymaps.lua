@@ -68,17 +68,44 @@ keymap.set({ "n", "x" }, "<leader>ct", "<cmd>ClaudeCodeFocus<cr>", { desc = "Tog
 keymap.set("n", "<leader>cc", "<cmd>ClaudeCode --continue<cr>", { desc = "Claude Code: continue last conversation" })
 keymap.set("n", "<leader>cr", "<cmd>ClaudeCode --resume<cr>", { desc = "Claude Code: resume (pick conversation)" })
 keymap.set("n", "<leader>cm", "<cmd>ClaudeCodeSelectModel<cr>", { desc = "Claude Code: select model" })
-keymap.set("n", "<leader>cb", "<cmd>ClaudeCodeAdd %<cr>", { desc = "Claude Code: add current buffer" })
+keymap.set("n", "<leader>cb", "<cmd>ClaudeCodeAdd %<cr><cmd>ClaudeCodeFocus<cr>", { desc = "Claude Code: add current buffer and focus Claude" })
 keymap.set("v", "<leader>cv", "<cmd>ClaudeCodeSend<cr>", { desc = "Claude Code: send selection" })
 
 -- in file trees <leader>cb adds the file under the cursor instead of the tree buffer
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "NvimTree", "neo-tree", "oil", "minifiles" },
   callback = function(ev)
-    keymap.set("n", "<leader>cb", "<cmd>ClaudeCodeTreeAdd<cr>", { buffer = ev.buf, desc = "Claude Code: add file" })
+    keymap.set("n", "<leader>cb", "<cmd>ClaudeCodeTreeAdd<cr><cmd>ClaudeCodeFocus<cr>", { buffer = ev.buf, desc = "Claude Code: add file and focus Claude" })
   end,
 })
 
 -- diff management (Claude's proposed edits open as diffs in nvim)
 keymap.set("n", "<leader>cy", "<cmd>ClaudeCodeDiffAccept<cr>", { desc = "Claude Code: accept diff" })
 keymap.set("n", "<leader>cn", "<cmd>ClaudeCodeDiffDeny<cr>", { desc = "Claude Code: deny diff" })
+
+-- system clipboard (Linux only; macOS uses unnamedplus, see core/options.lua)
+-- uses core/clipboard.lua helpers, which have timeout protection so wl-clipboard can't freeze nvim
+if vim.fn.has("mac") ~= 1 then
+  keymap.set("v", "<leader>ys", function()
+    vim.cmd('normal! "yy')
+    require("acetolyne.core.clipboard").copy_to_clipboard(vim.fn.getreg("y"))
+    vim.notify("Copied to system clipboard", vim.log.levels.INFO)
+  end, { desc = "Copy selection to system clipboard", silent = true })
+
+  keymap.set("n", "<leader>ys", function()
+    require("acetolyne.core.clipboard").copy_to_clipboard(vim.api.nvim_get_current_line() .. "\n")
+    vim.notify("Copied line to system clipboard", vim.log.levels.INFO)
+  end, { desc = "Copy line to system clipboard", silent = true })
+
+  keymap.set("n", "<leader>ps", function()
+    require("acetolyne.core.clipboard").paste_from_clipboard()
+  end, { desc = "Paste from system clipboard", silent = true })
+
+  keymap.set("v", "<leader>ps", function()
+    require("acetolyne.core.clipboard").paste_from_clipboard(function(text)
+      -- delete selection (blackhole register) and paste
+      vim.cmd('normal! gv"_d')
+      vim.api.nvim_put(vim.split(text, "\n"), "c", false, true)
+    end)
+  end, { desc = "Paste from system clipboard (replace selection)", silent = true })
+end

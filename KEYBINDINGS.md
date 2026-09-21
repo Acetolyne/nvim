@@ -83,12 +83,12 @@ In terminal mode:
 | `<C-t>` / `jk` | Exit to normal mode | `core/keymaps.lua` |
 
 ## Clipboard (system clipboard, Linux only)
-On macOS `core/clipboard.lua` is not loaded and `clipboard=unnamedplus` is set in `core/options.lua`, so plain `y`, `d` and `p` use the system clipboard and these two keys do not exist. On Linux `unnamedplus` stays off because `wl-clipboard` can freeze Neovim; these keys call `wl-copy`/`wl-paste` asynchronously with a timeout instead.
+On macOS these keys are not defined (see `core/keymaps.lua`) and `clipboard=unnamedplus` is set in `core/options.lua`, so plain `y`, `d` and `p` use the system clipboard and these two keys do not exist. On Linux `unnamedplus` stays off because `wl-clipboard` can freeze Neovim; these keys call `wl-copy`/`wl-paste` asynchronously with a timeout instead, via helpers in `core/clipboard.lua`.
 
 | Key | Action | Defined in |
 |---|---|---|
-| `<leader>y` | Copy the line (normal) or selection (visual) to the system clipboard | `core/clipboard.lua` |
-| `<leader>p` | Paste from the system clipboard (visual mode replaces the selection) | `core/clipboard.lua` |
+| `<leader>ys` | Copy the line (normal) or selection (visual) to the system clipboard | `core/keymaps.lua` |
+| `<leader>ps` | Paste from the system clipboard (visual mode replaces the selection) | `core/keymaps.lua` |
 
 ## Completion (nvim-cmp)
 | Key | Action | Defined in |
@@ -114,8 +114,8 @@ Keys are set in `core/keymaps.lua`; `plugins/claudecode.lua` only lists the comm
 | `<leader>cc` | Continue the last conversation | `core/keymaps.lua` |
 | `<leader>cr` | Resume a conversation (picker) | `core/keymaps.lua` |
 | `<leader>cm` | Select the model | `core/keymaps.lua` |
-| `<leader>cb` | Add the current buffer to Claude's context | `core/keymaps.lua` |
-| `<leader>cb` (in NvimTree, neo-tree, oil, minifiles) | Add the file under the cursor (buffer-local, overrides the global map) | `core/keymaps.lua` (FileType autocmd) |
+| `<leader>cb` | Add the current buffer to Claude's context and move the cursor to the Claude window | `core/keymaps.lua` |
+| `<leader>cb` (in NvimTree, neo-tree, oil, minifiles) | Add the file under the cursor and move the cursor to the Claude window (buffer-local, overrides the global map) | `core/keymaps.lua` (FileType autocmd) |
 | `<leader>cv` | Send the visual selection to Claude | `core/keymaps.lua` |
 | `<leader>cy` / `<leader>cn` | Accept / deny Claude's proposed diff | `core/keymaps.lua` |
 
