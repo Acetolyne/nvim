@@ -1,6 +1,6 @@
 return {
   "nvim-telescope/telescope.nvim",
-  branch = "0.1.x",
+  branch = "master",
   cmd = "Telescope", -- Lazy load on command
   dependencies = {
     "nvim-lua/plenary.nvim",

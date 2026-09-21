@@ -1,8 +1,8 @@
 # Keybindings to migrate
 
-Keys from `KEYBINDINGS.md` that are not yet set in `core/keymaps.lua`. Paths are relative to `lua/acetolyne/`. Last checked 2026-09-19.
+Keys from `KEYBINDINGS.md` that are not yet set in `core/keymaps.lua`. Paths are relative to `lua/acetolyne/`. Last checked 2026-09-20.
 
-Already moved: nvim-tree, Telescope `<leader>s*` (the duplicates in `plugins/telescope.lua` are gone), ToggleTerm, Cheat.sh, gitsigns `gb`/`gh`, and all Claude Code keys.
+Already moved: nvim-tree, Telescope `<leader>s*` (the duplicates in `plugins/telescope.lua` are gone), ToggleTerm, Cheat.sh, gitsigns `gb`/`gh`, all Claude Code keys, and the Linux-only system clipboard keys (now `<leader>ys` / `<leader>ps`, replacing `<leader>y` / `<leader>p`).
 
 ## LSP (only active in buffers with an LSP attached)
 | Key | Action | Defined in |
@@ -38,8 +38,8 @@ Already moved: nvim-tree, Telescope `<leader>s*` (the duplicates in `plugins/tel
 | Key | Action | Defined in |
 |---|---|---|
 | `<leader>go` | Open Neogit in a vsplit | `plugins/neogit.lua` |
-| `<leader>gb` / `<leader>tb` | Toggle inline blame on the current line | `core/keymaps.lua` (`gb`), `plugins/gitsigns.lua` (`tb`) |
-| `<leader>gh` / `<leader>hi` | Preview the hunk inline | `core/keymaps.lua` (`gh`), `plugins/gitsigns.lua` (`hi`) |
+| `<leader>tb` | Toggle inline blame on the current line (duplicate of the migrated `gb`) | `plugins/gitsigns.lua` |
+| `<leader>hi` | Preview the hunk inline (duplicate of the migrated `gh`) | `plugins/gitsigns.lua` |
 | `]c` / `[c` | Next / previous hunk | `plugins/gitsigns.lua` |
 | `<leader>hs` / `<leader>hr` | Stage / reset hunk (also works on a visual selection) | `plugins/gitsigns.lua` |
 | `<leader>hS` / `<leader>hR` | Stage / reset the whole buffer | `plugins/gitsigns.lua` |
@@ -49,14 +49,6 @@ Already moved: nvim-tree, Telescope `<leader>s*` (the duplicates in `plugins/tel
 | `<leader>hq` / `<leader>hQ` | Hunks to quickfix (buffer / all) | `plugins/gitsigns.lua` |
 | `<leader>tw` | Toggle word diff | `plugins/gitsigns.lua` |
 | `ih` (operator/visual) | Select the hunk as a text object | `plugins/gitsigns.lua` |
-
-## Clipboard (system clipboard, Linux only)
-Not loaded on macOS (`unnamedplus` is used there instead), so migrate with an OS check.
-
-| Key | Action | Defined in |
-|---|---|---|
-| `<leader>y` | Copy the line (normal) or selection (visual) to the system clipboard | `core/clipboard.lua` |
-| `<leader>p` | Paste from the system clipboard (visual mode replaces the selection) | `core/clipboard.lua` |
 
 ## Completion (nvim-cmp)
 | Key | Action | Defined in |
